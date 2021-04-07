@@ -267,6 +267,8 @@ func FromString(purl string) (PackageURL, error) {
 		remainder = remainder[:index]
 	}
 
+	// start out by extracting the purl version (if one is specified) to
+	// prevent it from being type-adjusted (might change casing, for example)
 	atIndex := strings.Index(remainder, "@")
 	version := ""
 	if atIndex != -1 {
