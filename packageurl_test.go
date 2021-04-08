@@ -199,13 +199,6 @@ func TestToStringExamples(t *testing.T) {
 		if tc.IsInvalid == true {
 			continue
 		}
-		// TODO: Remove after merging https://github.com/softsense/packageurl-go/pull/2
-		// Switching the order of version parsing has the side-effect of making
-		// angular/animation@12.3.1 the version with how this is parsed, but
-		// the PR removes the ambiguity of what the version separator is.
-		if tc.CanonicalPurl == "pkg:npm/%40angular/animation@12.3.1" {
-			continue
-		}
 		instance := packageurl.NewPackageURL(
 			tc.PackageType, tc.Namespace, tc.Name,
 			tc.Version, tc.Qualifiers(), tc.Subpath)
