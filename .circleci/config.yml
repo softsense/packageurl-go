@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  ci: softsense/ci-tools@0.1.42
+  ci: softsense/ci-tools@0.1.52
 
 jobs:
   test:
