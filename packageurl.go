@@ -162,7 +162,7 @@ func (p *PackageURL) ToString() string {
 	purl := fmt.Sprintf("pkg:%s/", p.Type)
 	// Add namespaces if provided
 	if p.Namespace != "" {
-		ns := []string{}
+		var ns []string
 		for _, item := range strings.Split(p.Namespace, "/") {
 			ns = append(ns, percentEncode(item))
 		}
@@ -306,7 +306,7 @@ func FromString(purl string) (PackageURL, error) {
 		return PackageURL{}, fmt.Errorf("failed to unescape purl name: %s", err)
 	}
 
-	namespaces := []string{}
+	var namespaces []string
 
 	if index != -1 {
 		remainder = remainder[:index]
