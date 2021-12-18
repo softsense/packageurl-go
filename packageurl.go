@@ -161,7 +161,7 @@ func NewPackageURL(purlType, namespace, name, version string,
 	}
 }
 
-// ToString returns the human readable instance of the PackageURL structure.
+// ToString returns the human-readable instance of the PackageURL structure.
 // This is the literal purl as defined by the spec.
 func (p *PackageURL) ToString() string {
 	// Start with the type and a colon
@@ -187,7 +187,7 @@ func (p *PackageURL) ToString() string {
 	for _, q := range p.Qualifiers {
 		qualifiers = append(qualifiers, q.String())
 	}
-	// If there one or more key=value pairs then append on the package url
+	// If there are one or more key=value pairs, append on the package url
 	if len(qualifiers) != 0 {
 		purl = purl + "?" + strings.Join(qualifiers, "&")
 	}
